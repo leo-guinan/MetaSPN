@@ -1,3 +1,5 @@
+# ⚙️ TECHNICAL APPENDIX — “The Anatomy of IdeaRank-Thought”
+
 ## A1. Factor Computation Details
 
 | Factor | Source Data | Computational Method |
