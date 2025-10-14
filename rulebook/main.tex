@@ -1,0 +1,134 @@
+% MetaSPN League Rulebook - Main Document
+% Version 1.0 - "The Official Framework for Cognitive Sport"
+
+\documentclass[11pt,letterpaper,twoside]{book}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+
+% Page geometry
+\geometry{
+  top=1in,
+  bottom=1in,
+  left=1.25in,
+  right=1.25in,
+  headheight=14pt
+}
+
+% Header/Footer styling
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\textit{MetaSPN League Rulebook}}
+\fancyhead[LO]{\textit{\leftmark}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={MetaSPN League Rulebook v1.0},
+    pdfauthor={MetaSPN League},
+    pdfsubject={Cognitive Sport Framework},
+    pdfkeywords={MetaSPN, Cognitive Sport, IdeaRank, Competition}
+}
+
+% Custom colors
+\definecolor{metablue}{RGB}{0,102,204}
+\definecolor{metagray}{RGB}{100,100,100}
+
+% Title formatting
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{metablue}}
+  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{metablue}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}
+  {\thesubsection}{1em}{}
+
+% Custom environments
+\newtcolorbox{definition}{
+  colback=blue!5!white,
+  colframe=metablue,
+  fonttitle=\bfseries,
+  title=Definition
+}
+
+\newtcolorbox{principle}{
+  colback=gray!5!white,
+  colframe=metagray,
+  fonttitle=\bfseries,
+  title=Core Principle
+}
+
+% Title information
+\title{
+  \Huge\textbf{MetaSPN League Rulebook}\\
+  \vspace{0.5cm}
+  \Large Version 1.0\\
+  \vspace{0.3cm}
+  \large\textit{"The Official Framework for Cognitive Sport"}
+}
+\author{MetaSPN League}
+\date{\today}
+
+% Document
+\begin{document}
+
+% Title page
+\maketitle
+\thispagestyle{empty}
+
+% Table of contents
+\tableofcontents
+\clearpage
+
+% Include all chapters
+\input{chapters/01_philosophy}
+\input{chapters/02_components}
+\input{chapters/03_classes}
+\input{chapters/04_divisions}
+\input{chapters/05_match_format}
+\input{chapters/06_coaching}
+\input{chapters/07_scoring}
+\input{chapters/08_integrity}
+\input{chapters/09_advancement}
+\input{chapters/10_governance}
+\input{chapters/11_spectator}
+\input{chapters/12_future}
+
+% Appendices
+\appendix
+\input{chapters/appendix_technical}
+\input{chapters/appendix_glossary}
+
+% Motto page
+\clearpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\Large\textit{"Think visibly. Compete intelligently. Evolve together."}\\
+\vspace{0.5cm}
+\normalsize — MetaSPN League Charter
+\end{center}
+\vspace*{\fill}
+
+\end{document}
+

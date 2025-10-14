@@ -1,0 +1,107 @@
+% Chapter 7: Scoring
+\chapter{Scoring — "The Measure of Thought"}
+\label{ch:scoring}
+
+\section{The Principle of Measurement}
+
+Scoring in MetaSPN exists to make thought visible, fair, and comparable.
+
+\begin{principle}
+\textbf{It's not about being right — it's about thinking well.}
+\end{principle}
+
+Every match is scored using \textbf{IdeaRank-Thought (IR-T)} — a unified algorithm derived from the six IdeaRank factors, expanded to include correctness, compliance, and coaching impact.
+
+\section{Structure of Scoring}
+
+Each round produces a composite score between \textbf{0.0} and \textbf{1.0}, computed as:
+
+\begin{equation}
+\text{IR-T} = O^{w_O} \times X^{w_X} \times U^{w_U} \times C^{w_C} \times L^{w_L} \times Q^{w_Q} \times T^{w_T} \times D^{w_D} \times (1 + \lambda \times \text{CI})
+\end{equation}
+
+\subsection{Scoring Factors}
+
+The nine factors that comprise IdeaRank-Thought are defined as follows:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}clp{8cm}@{}}
+\toprule
+\textbf{Symbol} & \textbf{Factor} & \textbf{Description} \\ \midrule
+\textbf{O} & Outcome Validity & Correctness and robustness \\
+\textbf{X} & Constraint Compliance & Adherence to rules, ethics, and resource limits \\
+\textbf{U} & Uniqueness & Originality and creative problem framing \\
+\textbf{C} & Cohesion & Logical and narrative consistency of reasoning \\
+\textbf{L} & Learning & Progress, adaptation, and insight development \\
+\textbf{Q} & Quality & Clarity, communicability, and polish \\
+\textbf{T} & Trust & Verifiable grounding and testability \\
+\textbf{D} & Density & Information efficiency and reasoning compactness \\
+\textbf{CI} & Coach Impact & Measured influence of coaching interventions \\ \bottomrule
+\end{tabular}
+\caption{IdeaRank-Thought Scoring Factors}
+\label{tab:scoring_factors}
+\end{table}
+
+\section{Weights \& Class Modifiers}
+
+Each class emphasizes different aspects of cognitive performance, reflected in factor weight adjustments:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}clcc@{}}
+\toprule
+\textbf{Class} & \textbf{Focus} & \textbf{Weight Adjustment} & \textbf{Coaching Mod ($\lambda$)} \\ \midrule
+\textbf{A} (Developmental) & Growth, learning & +0.05 on \textbf{L} & $\lambda = 0.15$ \\
+\textbf{B} (Performance) & Execution \& clarity & +0.05 on \textbf{Q}, \textbf{O} & $\lambda = 0.20$ \\
+\textbf{C} (Master) & Reflective \& meta-coaching & +0.05 on \textbf{T}, \textbf{C} & $\lambda = 0.30$ \\ \bottomrule
+\end{tabular}
+\caption{Class-Based Weight Modifiers}
+\label{tab:class_modifiers}
+\end{table}
+
+\section{Coaching Impact (CI)}
+
+Coaching Impact measures the causal delta in player performance after coaching interventions:
+
+\begin{equation}
+\text{CI} = 0.6(\Delta\text{IR-T}) + 0.3(\text{plan adherence}) + 0.1(\text{challenge success})
+\end{equation}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Positive CI} → Effective, timely guidance
+  \item \textbf{Negative CI} → Detrimental or distracting coaching
+  \item CI is capped at $\pm 1.0$
+\end{itemize}
+
+\section{Rounds \& Structure}
+
+Each match includes three rounds:
+
+\begin{enumerate}
+  \item \textbf{Exploration} — Ideation
+  \item \textbf{Execution} — Problem Solving
+  \item \textbf{Reflection} — Justification
+\end{enumerate}
+
+Timeouts and challenges are tracked; all reasoning steps are logged to the \textbf{MetaSPN Ledger} for auditability.
+
+\section{Ranking \& Advancement}
+
+Player and Coach scores are averaged across matches to form \textbf{Meta Ratings (MR)}.
+
+Promotions and class changes occur when MR thresholds are reached:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lr@{}}
+\toprule
+\textbf{Transition} & \textbf{MR Threshold} \\ \midrule
+\textbf{A $\rightarrow$ B} & $\geq 650$ \\
+\textbf{B $\rightarrow$ C} & $\geq 800$ \\
+\textbf{Master Certification} & $\geq 950$ and $\geq 10$ verified matches \\ \bottomrule
+\end{tabular}
+\caption{Advancement Thresholds}
+\label{tab:advancement_thresholds}
+\end{table}
+

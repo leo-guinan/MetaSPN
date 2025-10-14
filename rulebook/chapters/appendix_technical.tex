@@ -1,0 +1,219 @@
+% Appendix: Technical Details
+\chapter{Technical Appendix — "The Anatomy of IdeaRank-Thought"}
+\label{app:technical}
+
+This appendix provides the computational and implementation details underlying the IdeaRank-Thought scoring system.
+
+\section{A1. Factor Computation Details}
+
+Each IdeaRank factor is derived from specific data sources using validated computational methods:
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}p{2.5cm}p{4cm}p{6cm}@{}}
+\toprule
+\textbf{Factor} & \textbf{Source Data} & \textbf{Computational Method} \\ \midrule
+\textbf{U} (Uniqueness) & Graph similarity vs league corpus & Novelty z-score $\rightarrow$ sigmoid normalization \\[0.5em]
+\textbf{C} (Cohesion) & Reasoning map analysis & Structural consistency, linguistic coherence \\[0.5em]
+\textbf{L} (Learning) & Early/late checkpoint delta & Skill gain function over time \\[0.5em]
+\textbf{Q} (Quality) & Human \& AI rubric & Readability, completeness, clarity metrics \\[0.5em]
+\textbf{T} (Trust) & Test logs, citations & Pass rate $\times$ citation quality \\[0.5em]
+\textbf{D} (Density) & Tokens vs valid nodes & Information-per-step compression ratio \\ \bottomrule
+\end{tabular}
+\caption{Factor Computation Methods}
+\label{tab:factor_computation}
+\end{table}
+
+\section{A2. Gate Formulas}
+
+The foundational factors use specific gating functions to ensure score validity:
+
+\subsection{Outcome Validity (O)}
+
+\begin{equation}
+O = 0.7 \times \text{correctness} + 0.3 \times \text{robustness}
+\end{equation}
+
+Where:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Correctness} measures solution accuracy against ground truth or expert evaluation
+  \item \textbf{Robustness} assesses stability under variation and edge case handling
+\end{itemize}
+
+\subsection{Constraint Compliance (X)}
+
+\begin{equation}
+X = 1 - \text{violation\_penalty}
+\end{equation}
+
+Where:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Violation penalty} accumulates for each rule, resource, or ethical constraint breach
+  \item Penalties are proportional to severity and frequency
+  \item $X = 1$ indicates perfect compliance
+\end{itemize}
+
+\section{A3. Coaching Signal Processing}
+
+All coaching events are timestamped and cross-referenced with reasoning improvement metrics.
+
+\subsection{Timeout Delta Measurement}
+
+Coaching effectiveness is measured over \textbf{3 checkpoints}:
+\begin{enumerate}
+  \item \textbf{Pre-timeout:} Player performance immediately before coaching intervention
+  \item \textbf{During-timeout:} Coaching communication content and structure
+  \item \textbf{Post-timeout:} Player performance in subsequent reasoning steps
+\end{enumerate}
+
+The delta is computed as:
+\begin{equation}
+\Delta\text{IR-T} = \text{IR-T}_{\text{post}} - \text{IR-T}_{\text{pre}}
+\end{equation}
+
+\subsection{Plan Adherence Calculation}
+
+Plan adherence measures alignment between coached strategy and actual execution:
+\begin{equation}
+\text{Plan Adherence} = \text{semantic\_similarity}(\text{prebrief\_plan}, \text{executed\_reasoning})
+\end{equation}
+
+Computed using:
+\begin{itemize}[leftmargin=*]
+  \item Vector embeddings of plan and execution traces
+  \item Cosine similarity or earth mover's distance
+  \item Normalized to [0, 1] scale
+\end{itemize}
+
+\section{A4. Integrity Protocols}
+
+\subsection{Ledger Hashing}
+
+Every match's reasoning data is stored as an immutable hash for verification:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Hash function:} SHA-256 or equivalent cryptographic standard
+  \item \textbf{Merkle tree structure:} Enables efficient partial verification
+  \item \textbf{Timestamping:} RFC 3161 compliant trusted timestamps
+\end{itemize}
+
+\subsection{Replay Validation}
+
+AI models and human replays are cross-run for reproducibility:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Deterministic execution:} Fixed random seeds, controlled environments
+  \item \textbf{Bit-level comparison:} Output verification for AI systems
+  \item \textbf{Human replay protocols:} Ghost replays using identical challenges
+\end{itemize}
+
+\subsection{Anti-Gaming Measures}
+
+Multiplicative scoring punishes over-optimization of single factors:
+\begin{itemize}[leftmargin=*]
+  \item Factor multiplication (rather than addition) prevents single-factor dominance
+  \item Balanced performance across factors yields higher overall scores
+  \item Extreme specialization results in score penalties
+\end{itemize}
+
+\section{A5. Output Metrics}
+
+Each match produces a comprehensive set of performance metrics:
+
+\begin{description}[style=nextline,leftmargin=2cm]
+
+\item[IR-T Raw Score (0–1)]
+The unmodified IdeaRank-Thought score as computed by the base formula.
+
+\item[IR-T Class Adjusted Score]
+Raw score with class-specific weight adjustments applied (see Chapter \ref{ch:scoring}, Section on Weights \& Class Modifiers).
+
+\item[Coach Impact Index (CI)]
+Measured coaching effectiveness: $\text{CI} \in [-1.0, +1.0]$
+
+\item[Meta Rating (MR)]
+Long-term performance composite used for advancement decisions.
+
+\item[Entropy Index (EI) for Tiebreaks]
+Reasoning tree efficiency measure: lower entropy indicates more direct paths to solution.
+\begin{equation}
+\text{EI} = -\sum_{i} p_i \log_2(p_i)
+\end{equation}
+where $p_i$ represents the probability distribution over reasoning branches explored.
+
+\end{description}
+
+\section{A6. Visualization Schema}
+
+Reason Map Overlays employ a multi-dimensional encoding system for real-time match visualization:
+
+\subsection{Visual Encoding}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Node color} $\rightarrow$ Factor weight contribution
+  \begin{itemize}
+    \item Hue indicates dominant factor (e.g., blue = Cohesion, green = Learning)
+    \item Saturation indicates contribution magnitude
+  \end{itemize}
+  
+  \item \textbf{Edge thickness} $\rightarrow$ Cohesion strength
+  \begin{itemize}
+    \item Thicker edges represent stronger logical connections
+    \item Dashed edges indicate tentative or exploratory reasoning
+  \end{itemize}
+  
+  \item \textbf{Halo glow} $\rightarrow$ Coaching intervention zones
+  \begin{itemize}
+    \item Glowing nodes indicate post-timeout reasoning
+    \item Glow intensity correlates with coaching impact magnitude
+  \end{itemize}
+\end{itemize}
+
+\subsection{Interactive Features}
+
+Spectators can interact with Reason Maps to:
+\begin{itemize}[leftmargin=*]
+  \item Isolate individual factor contributions
+  \item Replay reasoning sequences at variable speed
+  \item Compare alternative paths not taken
+  \item View detailed factor breakdowns per node
+\end{itemize}
+
+\section{A7. Open Science Clause}
+
+MetaSPN operates under principles of transparency and reproducibility:
+
+\subsection{Open Standards}
+
+All algorithms, rubrics, and evaluation criteria are \textbf{open standard} under the MetaSPN Charter:
+\begin{itemize}[leftmargin=*]
+  \item Complete algorithm specifications publicly documented
+  \item Reference implementations available in open-source repositories
+  \item Validation datasets provided for calibration and testing
+\end{itemize}
+
+\subsection{Auditability}
+
+Any team can audit or replicate scoring through the \textbf{open IdeaRank SDK}:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Python SDK:} \texttt{pip install metaspn-idearank}
+  \item \textbf{JavaScript SDK:} \texttt{npm install @metaspn/idearank}
+  \item \textbf{REST API:} Public endpoints for score computation and validation
+\end{itemize}
+
+\subsection{Research Access}
+
+Academic and commercial researchers may access:
+\begin{itemize}[leftmargin=*]
+  \item Anonymized match data for analysis
+  \item Historical scoring calibration data
+  \item Participant consent for case studies
+  \item Computational resources for replication studies
+\end{itemize}
+
+\vspace{1em}
+
+\begin{center}
+\textit{Technical specifications are maintained and updated by IROC (IdeaRank Oversight Committee).\\
+For the latest technical documentation, visit: \url{https://docs.metaspn.org/technical}}
+\end{center}
+

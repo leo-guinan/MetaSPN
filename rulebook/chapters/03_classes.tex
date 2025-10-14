@@ -1,0 +1,89 @@
+% Chapter 3: League Classes
+\chapter{League Classes}
+\label{ch:classes}
+
+The MetaSPN League is organized into three distinct classes, each emphasizing different aspects of cognitive performance and coaching interaction.
+
+\section{Overview}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}p{2cm}p{4cm}p{3cm}p{4cm}@{}}
+\toprule
+\textbf{Class} & \textbf{Description} & \textbf{Focus} & \textbf{Typical Coach Behavior} \\ \midrule
+\textbf{Class A:} Developmental / Coaching Up & Entry and intermediate tier & Skill growth, process fundamentals & High interaction, scaffolding \\[1em]
+\textbf{Class B:} Performance / Field Awareness & Professional tier & High-speed reasoning, decision visibility & Limited timeouts, meta-guidance \\[1em]
+\textbf{Class C:} Master / Meta-Coaching & Expert + experimental tier & Coaching systems, reflective strategy & Coach-on-coach interaction, AI analysis \\ \bottomrule
+\end{tabular}
+\caption{MetaSPN League Classes}
+\label{tab:league_classes}
+\end{table}
+
+\section{Class A: Developmental / Coaching Up}
+
+\subsection{Purpose}
+Class A serves as the entry point for all participants. It emphasizes \textit{learning} over performance, with coaching focused on building foundational reasoning skills.
+
+\subsection{Characteristics}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Timeouts:} 3 $\times$ 60 seconds
+  \item \textbf{Coaching style:} Highly interactive, with scaffolding and process guidance
+  \item \textbf{IdeaRank weight bonus:} +0.05 on Learning (L) factor
+  \item \textbf{Coaching Impact modifier:} $\lambda = 0.15$
+\end{itemize}
+
+\subsection{Typical Challenges}
+\begin{itemize}[leftmargin=*]
+  \item Structured problem-solving with clear constraints
+  \item Pattern recognition and categorization
+  \item Basic strategic planning
+  \item Explanation and justification of reasoning
+\end{itemize}
+
+\section{Class B: Performance / Field Awareness}
+
+\subsection{Purpose}
+Class B represents professional-tier competition. Participants demonstrate competent reasoning skills and focus on execution quality and speed.
+
+\subsection{Characteristics}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Timeouts:} 2 $\times$ 60 seconds
+  \item \textbf{Coaching style:} Limited interventions, meta-guidance and strategic corrections
+  \item \textbf{IdeaRank weight bonus:} +0.05 on Quality (Q) and Outcome Validity (O)
+  \item \textbf{Coaching Impact modifier:} $\lambda = 0.20$
+\end{itemize}
+
+\subsection{Typical Challenges}
+\begin{itemize}[leftmargin=*]
+  \item Complex multi-constraint optimization
+  \item Real-time decision-making under uncertainty
+  \item Advanced strategic gameplay
+  \item High-quality communication and presentation
+\end{itemize}
+
+\section{Class C: Master / Meta-Coaching}
+
+\subsection{Purpose}
+Class C is the apex tier, featuring expert participants and experimental formats. Competition emphasizes reflective reasoning, coaching innovation, and meta-cognitive awareness.
+
+\subsection{Characteristics}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Timeouts:} 1 $\times$ 90 seconds + 1 reflective timeout
+  \item \textbf{Coaching style:} Coach-on-coach interaction, AI-assisted analysis, reflective strategy
+  \item \textbf{IdeaRank weight bonus:} +0.05 on Trust (T) and Cohesion (C)
+  \item \textbf{Coaching Impact modifier:} $\lambda = 0.30$
+\end{itemize}
+
+\subsection{Typical Challenges}
+\begin{itemize}[leftmargin=*]
+  \item Open-ended research and synthesis problems
+  \item Novel challenge design and framework creation
+  \item Meta-reasoning about cognitive strategies
+  \item Coaching system evaluation and improvement
+\end{itemize}
+
+\section{Class Advancement}
+
+Participants advance between classes based on their Meta Rating (MR). See Chapter \ref{ch:advancement} for complete advancement criteria.
+

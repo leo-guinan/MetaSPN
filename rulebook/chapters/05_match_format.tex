@@ -1,0 +1,131 @@
+% Chapter 5: Match Format
+\chapter{Match Format}
+\label{ch:match_format}
+
+\section{Structure}
+
+Each match lasts \textbf{3 rounds}, each representing a different task or domain.
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Round length:} 10–15 minutes
+  \item \textbf{Total match time:} Approximately 45 minutes (including timeouts and transitions)
+\end{itemize}
+
+\subsection{Timeouts}
+
+Timeout allocation varies by class:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Class} & \textbf{Timeout Allocation} \\ \midrule
+Class A & 3 $\times$ 60 seconds \\
+Class B & 2 $\times$ 60 seconds \\
+Class C & 1 $\times$ 90 seconds + 1 reflective timeout \\ \bottomrule
+\end{tabular}
+\caption{Timeout Allocation by Class}
+\label{tab:timeouts}
+\end{table}
+
+\textbf{Timeout rules:}
+\begin{itemize}[leftmargin=*]
+  \item May be called at any point during a round
+  \item All communication during timeouts is publicly visible
+  \item Unused timeouts do \textit{not} carry over between rounds
+  \item Reflective timeouts (Class C only) may be used post-round for meta-analysis
+\end{itemize}
+
+\section{The Three Rounds}
+
+\subsection{Round 1: Exploration}
+
+\textbf{Focus:} Open-ended reasoning and hypothesis generation
+
+\textbf{Typical challenges:}
+\begin{itemize}[leftmargin=*]
+  \item Problem framing and scope definition
+  \item Generating multiple solution approaches
+  \item Identifying key constraints and trade-offs
+  \item Forming testable hypotheses
+\end{itemize}
+
+\textbf{Scoring emphasis:} Uniqueness (U), Learning (L), and Density (D)
+
+\subsection{Round 2: Execution}
+
+\textbf{Focus:} Constrained problem-solving or design
+
+\textbf{Typical challenges:}
+\begin{itemize}[leftmargin=*]
+  \item Implementing a chosen strategy
+  \item Optimizing under resource constraints
+  \item Real-time tactical decision-making
+  \item Demonstrating solution robustness
+\end{itemize}
+
+\textbf{Scoring emphasis:} Outcome Validity (O), Quality (Q), and Constraint Compliance (X)
+
+\subsection{Round 3: Reflection}
+
+\textbf{Focus:} Justification and meta-analysis
+
+\textbf{Typical challenges:}
+\begin{itemize}[leftmargin=*]
+  \item Explaining reasoning process and decisions
+  \item Analyzing strengths and weaknesses of approach
+  \item Identifying alternative paths and learning points
+  \item Generalizing insights to broader contexts
+\end{itemize}
+
+\textbf{Scoring emphasis:} Cohesion (C), Trust (T), and Quality (Q)
+
+\section{Match Flow}
+
+\begin{enumerate}
+  \item \textbf{Pre-Match Briefing} (5 minutes)
+  \begin{itemize}
+    \item Coach and player review challenge overview
+    \item Strategy formation and goal-setting
+  \end{itemize}
+  
+  \item \textbf{Round 1: Exploration} (10–15 minutes + timeouts)
+  
+  \item \textbf{Transition} (2 minutes)
+  \begin{itemize}
+    \item Brief rest and preparation for next round
+  \end{itemize}
+  
+  \item \textbf{Round 2: Execution} (10–15 minutes + timeouts)
+  
+  \item \textbf{Transition} (2 minutes)
+  
+  \item \textbf{Round 3: Reflection} (10–15 minutes + timeouts)
+  
+  \item \textbf{Post-Match Analysis} (5 minutes)
+  \begin{itemize}
+    \item Coach provides developmental feedback
+    \item Scores finalized and published
+  \end{itemize}
+\end{enumerate}
+
+\section{Match Recording \& Visibility}
+
+All matches are:
+\begin{itemize}[leftmargin=*]
+  \item Recorded in full (audio, video, reasoning traces)
+  \item Logged to the MetaSPN Ledger with cryptographic verification
+  \item Broadcast with live Reason Map Overlay (see Chapter \ref{ch:spectator})
+  \item Available for post-match review and analysis
+\end{itemize}
+
+\section{Challenges \& Appeals}
+
+Participants may challenge referee decisions or scoring assessments:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{In-match challenges:} Must be raised immediately; consumes one timeout
+  \item \textbf{Post-match appeals:} Must be filed within 24 hours; reviewed by MetaSPN Council
+  \item \textbf{Successful challenge bonus:} +0.03 to IdeaRank score for overturned calls
+\end{itemize}
+

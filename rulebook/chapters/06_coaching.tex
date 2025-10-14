@@ -1,0 +1,156 @@
+% Chapter 6: Coaching Rules
+\chapter{Coaching Rules}
+\label{ch:coaching}
+
+Coaches play a critical role in MetaSPN, shaping player strategy, decision-making, and long-term development. This chapter defines permissible coaching conduct and communication protocols.
+
+\section{Communication Windows}
+
+\subsection{Permitted Communication Times}
+
+Coaching communication is allowed during:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Pre-Match Briefing} (5 minutes)
+  \item \textbf{Timeouts} (duration varies by class)
+  \item \textbf{Post-Match Analysis} (5 minutes)
+  \item \textbf{Reflective Timeouts} (Class C only)
+\end{itemize}
+
+\subsection{Communication Visibility}
+
+All coaching communication is \textbf{publicly visible} to the audience:
+\begin{itemize}[leftmargin=*]
+  \item Audio transcribed in real-time
+  \item Visual displays shown on Reason Map Overlay
+  \item Archived for post-match review
+\end{itemize}
+
+This transparency ensures:
+\begin{itemize}[leftmargin=*]
+  \item Fair evaluation of coaching impact
+  \item Educational value for spectators
+  \item Accountability in coach-player interactions
+\end{itemize}
+
+\section{Coaching Conduct}
+
+\subsection{Permissible Coaching Activities}
+
+Coaches \textbf{may}:
+\begin{itemize}[leftmargin=*]
+  \item Guide strategic approach and problem-solving structure
+  \item Ask clarifying questions to prompt player reflection
+  \item Highlight overlooked constraints or considerations
+  \item Suggest alternative perspectives or framings
+  \item Provide encouragement and manage player state
+  \item Reference general principles and heuristics
+\end{itemize}
+
+\subsection{Prohibited Coaching Activities}
+
+Coaches \textbf{may not}:
+\begin{itemize}[leftmargin=*]
+  \item Provide direct answers or solutions
+  \item Execute reasoning steps on behalf of the player
+  \item Access external resources not available to the player
+  \item Communicate outside designated windows
+  \item Provide misleading or deliberately harmful guidance
+\end{itemize}
+
+\subsection{Violation Penalties}
+
+Coaching violations incur a \textbf{Reason Integrity Penalty}:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lc@{}}
+\toprule
+\textbf{Violation Type} & \textbf{IdeaRank Penalty} \\ \midrule
+Direct solution provided & $-0.10$ \\
+Misleading guidance (if intentional) & $-0.08$ \\
+Unauthorized communication & $-0.05$ \\
+Minor procedural infractions & $-0.02$ \\ \bottomrule
+\end{tabular}
+\caption{Coaching Violation Penalties}
+\label{tab:coaching_penalties}
+\end{table}
+
+Repeated or egregious violations may result in coach suspension or disqualification.
+
+\section{Coach Substitution}
+
+\subsection{Between-Round Substitution}
+
+Teams may change coaches between rounds in \textbf{Class B} and \textbf{Class C} divisions:
+\begin{itemize}[leftmargin=*]
+  \item Substitution must be declared during transition period
+  \item New coach receives 2-minute briefing from outgoing coach
+  \item Both coaches' Coaching Impact (CI) scores are tracked separately
+\end{itemize}
+
+\subsection{Mid-Round Substitution}
+
+Mid-round substitution is \textit{not permitted} except in cases of technical failure or medical emergency, subject to referee approval.
+
+\section{AI Coach Requirements}
+
+When AI systems serve as coaches, additional transparency requirements apply:
+
+\subsection{Pre-Match Declaration}
+
+AI coaches must declare:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Model architecture} (e.g., transformer, retrieval-augmented, etc.)
+  \item \textbf{Training data lineage} (cutoff date, domain coverage)
+  \item \textbf{Parameter count and configuration}
+  \item \textbf{Any fine-tuning or specialization} applied
+\end{itemize}
+
+\subsection{Reproducibility}
+
+AI coaching systems must be:
+\begin{itemize}[leftmargin=*]
+  \item Deterministic or use fixed random seeds
+  \item Capable of replay for verification purposes
+  \item Free from hidden external data access during matches
+\end{itemize}
+
+\subsection{Interpretability}
+
+AI coaches should provide reasoning traces when possible, allowing evaluation of coaching logic and decision-making.
+
+\section{Coach Evaluation \& Coaching Impact (CI)}
+
+Coaches are scored based on their measurable impact on player performance (see Chapter \ref{ch:scoring}, Section on Coaching Impact).
+
+\subsection{Positive CI Indicators}
+\begin{itemize}[leftmargin=*]
+  \item Player IdeaRank improvement following coaching interventions
+  \item Successful navigation of challenges after strategic guidance
+  \item High plan adherence (player follows coached strategy effectively)
+\end{itemize}
+
+\subsection{Negative CI Indicators}
+\begin{itemize}[leftmargin=*]
+  \item Player IdeaRank decline after coaching intervention
+  \item Confusion or misdirection following coach guidance
+  \item Overcorrection leading to abandonment of effective strategies
+\end{itemize}
+
+\section{Coach Development \& Advancement}
+
+Coaches progress through their own ranking system based on sustained positive Coaching Impact:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lc@{}}
+\toprule
+\textbf{Coach Certification Level} & \textbf{Requirements} \\ \midrule
+\textbf{Level 1} (Novice) & Complete coach training; 5+ matches \\
+\textbf{Level 2} (Certified) & Average CI $\geq +0.3$; 20+ matches \\
+\textbf{Level 3} (Master Coach) & Average CI $\geq +0.5$; 50+ matches; Class C eligible \\ \bottomrule
+\end{tabular}
+\caption{Coach Certification Levels}
+\label{tab:coach_certification}
+\end{table}
+

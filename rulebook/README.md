@@ -1,0 +1,238 @@
+# MetaSPN League Rulebook
+
+**Version 1.0** — "The Official Framework for Cognitive Sport"
+
+This directory contains the complete LaTeX source for the MetaSPN League Rulebook, a comprehensive framework for structured cognitive competition.
+
+## 📚 Document Structure
+
+The rulebook is organized into 12 chapters plus appendices:
+
+1. **Philosophy** — The vision and principles of MetaSPN
+2. **Core Components** — Game, Coach, League Structure, and Scoring
+3. **League Classes** — Class A (Developmental), B (Performance), C (Master)
+4. **Divisions & Pair Types** — Human/AI pairing formats
+5. **Match Format** — Round structure, timeouts, and flow
+6. **Coaching Rules** — Communication, conduct, and AI requirements
+7. **Scoring** — The IdeaRank-Thought (IR-T) algorithm
+8. **Integrity & Verification** — Ledger, fingerprinting, and ghost replays
+9. **Promotion & Advancement** — Meta Rating and class progression
+10. **League Governance** — Council, IROC, and Ethics Board
+11. **Spectator & Media Rules** — Broadcast standards and audience interaction
+12. **Future Addenda** — Planned expansions and experimental formats
+
+**Appendices:**
+- **Technical Appendix** — Implementation details, formulas, and computational methods
+- **Glossary** — Terms, acronyms, and definitions
+
+## 🛠️ Building the Rulebook
+
+### Prerequisites
+
+You need a LaTeX distribution installed:
+
+- **macOS:** [MacTeX](https://www.tug.org/mactex/)
+- **Linux:** `sudo apt-get install texlive-full`
+- **Windows:** [MiKTeX](https://miktex.org/)
+
+### Build Commands
+
+```bash
+# Build the complete rulebook (recommended)
+make
+
+# Quick single-pass build (for testing changes)
+make quick
+
+# Build and open the PDF (macOS only)
+make view
+
+# Clean all build artifacts
+make clean
+
+# Show help
+make help
+```
+
+### Manual Compilation
+
+If you prefer not to use Make:
+
+```bash
+# Create output directories
+mkdir -p build output
+
+# Compile (run 3 times for proper references)
+pdflatex -output-directory=build main.tex
+pdflatex -output-directory=build main.tex
+pdflatex -output-directory=build main.tex
+
+# Copy to output
+cp build/main.pdf output/MetaSPN_Rulebook_v1.0.pdf
+```
+
+## 📂 File Organization
+
+```
+rulebook/
+├── main.tex                    # Master LaTeX document
+├── Makefile                    # Build automation
+├── README.md                   # This file
+├── scoring.md                  # Markdown version of scoring chapter
+├── technical_appendix.md       # Markdown version of technical appendix
+├── chapters/                   # Individual chapter files
+│   ├── 01_philosophy.tex
+│   ├── 02_components.tex
+│   ├── 03_classes.tex
+│   ├── 04_divisions.tex
+│   ├── 05_match_format.tex
+│   ├── 06_coaching.tex
+│   ├── 07_scoring.tex
+│   ├── 08_integrity.tex
+│   ├── 09_advancement.tex
+│   ├── 10_governance.tex
+│   ├── 11_spectator.tex
+│   ├── 12_future.tex
+│   ├── appendix_technical.tex
+│   └── appendix_glossary.tex
+├── build/                      # Build artifacts (created by Make)
+└── output/                     # Final PDF output (created by Make)
+```
+
+## 🎨 Customization
+
+### Modifying Individual Chapters
+
+Each chapter is a standalone `.tex` file in the `chapters/` directory. You can edit any chapter independently:
+
+```bash
+# Edit a specific chapter
+vim chapters/07_scoring.tex
+
+# Rebuild to see changes
+make quick
+```
+
+### Styling
+
+The main document (`main.tex`) contains all styling configuration:
+
+- **Colors:** `metablue` and `metagray` defined with `\definecolor`
+- **Fonts:** Configured in the preamble
+- **Custom environments:** `definition` and `principle` boxes
+- **Page layout:** Margins, headers, footers in geometry settings
+
+### Adding New Chapters
+
+1. Create a new `.tex` file in `chapters/` (e.g., `13_new_chapter.tex`)
+2. Add `\include{chapters/13_new_chapter}` to `main.tex`
+3. Update the Makefile's `CHAPTERS` variable
+4. Rebuild: `make`
+
+## 📊 The IdeaRank-Thought Formula
+
+The core scoring algorithm is:
+
+```
+IR-T = O^(w_O) × X^(w_X) × U^(w_U) × C^(w_C) × L^(w_L) × Q^(w_Q) × T^(w_T) × D^(w_D) × (1 + λ × CI)
+```
+
+Where:
+- **O** = Outcome Validity
+- **X** = Constraint Compliance
+- **U** = Uniqueness
+- **C** = Cohesion
+- **L** = Learning
+- **Q** = Quality
+- **T** = Trust
+- **D** = Density
+- **CI** = Coaching Impact
+
+See Chapter 7 for complete details.
+
+## 🔄 Version Control
+
+This rulebook is version-controlled. Major changes should:
+
+1. Update the version number in `main.tex` (`\title` section)
+2. Update the filename pattern in the Makefile (`OUTPUT` variable)
+3. Document changes in a CHANGELOG (to be created)
+4. Tag releases in git: `git tag v1.1`
+
+## 📖 Output Formats
+
+### PDF (Primary)
+
+The canonical format is PDF, generated by LaTeX compilation:
+
+```bash
+make
+# Output: output/MetaSPN_Rulebook_v1.0.pdf
+```
+
+### Markdown (Reference)
+
+A markdown version of the scoring chapter exists at `scoring.md` for easy viewing on GitHub and other platforms.
+
+To convert other chapters to Markdown, consider using:
+
+```bash
+# Install pandoc
+brew install pandoc  # macOS
+sudo apt-get install pandoc  # Linux
+
+# Convert individual chapters
+pandoc chapters/01_philosophy.tex -o markdown/01_philosophy.md
+```
+
+## 🤝 Contributing
+
+When contributing to the rulebook:
+
+1. Edit the appropriate `.tex` file(s)
+2. Test compilation: `make quick`
+3. Review the PDF output for formatting
+4. Commit with descriptive messages
+5. If modifying formulas or tables, double-check math rendering
+
+## 📜 License
+
+This rulebook is part of the MetaSPN project. License details TBD.
+
+## 🆘 Troubleshooting
+
+### LaTeX Compilation Errors
+
+If you encounter errors during compilation:
+
+1. Check that all required packages are installed
+2. Look for syntax errors in chapter files
+3. Try `make clean` then `make` to rebuild from scratch
+4. Check the build log: `cat build/main.log`
+
+### Missing Fonts or Styles
+
+If the PDF renders with missing elements:
+
+- Ensure you have a complete LaTeX distribution (texlive-full or MacTeX)
+- Check that all packages in `main.tex` are available
+- Update your LaTeX distribution: `tlmgr update --all`
+
+### Cross-References Not Working
+
+If chapter references show as "??" in the PDF:
+
+- This is normal on first compile
+- Run `make build` (3 passes) instead of `make quick` (1 pass)
+- LaTeX needs multiple passes to resolve all references
+
+## 📧 Contact
+
+For questions about the rulebook structure or content, contact the MetaSPN Council.
+
+---
+
+**Motto:** *"Think visibly. Compete intelligently. Evolve together."*
+
+— MetaSPN League Charter
+

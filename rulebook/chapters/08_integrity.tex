@@ -1,0 +1,174 @@
+% Chapter 8: Integrity & Verification
+\chapter{Integrity \& Verification}
+\label{ch:integrity}
+
+MetaSPN maintains the highest standards of competitive integrity through comprehensive recording, verification, and transparency mechanisms.
+
+\section{The MetaSPN Ledger}
+
+All matches are recorded to the \textbf{MetaSPN Ledger}, a cryptographically secured, append-only log system.
+
+\subsection{Recorded Data}
+
+The Ledger captures:
+\begin{itemize}[leftmargin=*]
+  \item Complete reasoning traces (every step, decision, and calculation)
+  \item All coaching communications (audio, text, or structured data)
+  \item Timestamp data for all actions and timeouts
+  \item IdeaRank factor scores at each evaluation point
+  \item Participant declarations (AI model parameters, training data, etc.)
+  \item Challenge and appeal records
+\end{itemize}
+
+\subsection{Cryptographic Verification}
+
+Each match record receives:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Content hash} (SHA-256 or equivalent)
+  \item \textbf{Digital signature} from authorized referee
+  \item \textbf{Timestamp certification} from trusted time source
+  \item \textbf{Merkle tree inclusion} for historical integrity
+\end{itemize}
+
+This ensures match records are:
+\begin{itemize}[leftmargin=*]
+  \item Immutable (cannot be altered retroactively)
+  \item Auditable (complete history preserved)
+  \item Verifiable (cryptographic proof of authenticity)
+\end{itemize}
+
+\section{AI Participant Requirements}
+
+\subsection{Model Fingerprinting}
+
+AI participants (players or coaches) undergo \textbf{model fingerprinting}:
+\begin{enumerate}
+  \item \textbf{Challenge-response test} using standardized prompts
+  \item \textbf{Behavior profiling} on reference tasks
+  \item \textbf{Statistical signature analysis} of output patterns
+\end{enumerate}
+
+This creates a unique identifier ensuring:
+\begin{itemize}[leftmargin=*]
+  \item The declared model matches the competing system
+  \item No undisclosed modifications or external assistance
+  \item Consistency across multiple matches
+\end{itemize}
+
+\subsection{Reproducibility Checks}
+
+AI systems must demonstrate \textbf{reproducibility}:
+\begin{itemize}[leftmargin=*]
+  \item Given the same inputs and seed, produce identical outputs
+  \item Replay matches for verification purposes
+  \item Provide execution logs for audit
+\end{itemize}
+
+\subsection{Data Access Controls}
+
+During matches, AI systems:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{May not} access real-time internet data
+  \item \textbf{May not} communicate with external systems
+  \item \textbf{May} access declared knowledge bases (specified pre-match)
+  \item \textbf{Must} operate in isolated execution environments
+\end{itemize}
+
+\section{Ghost Replays}
+
+\textbf{Ghost Replays} are randomized post-match reruns used to ensure fairness and calibration.
+
+\subsection{Process}
+\begin{enumerate}
+  \item Random selection of completed matches ($\sim$5\% of all matches)
+  \item Human-only teams reattempt the same challenge
+  \item Scoring comparison identifies systematic biases
+  \item Adjustments made to IdeaRank calibration if needed
+\end{enumerate}
+
+\subsection{Purpose}
+\begin{itemize}[leftmargin=*]
+  \item Verify scoring consistency across different participant types
+  \item Detect challenge design flaws or ambiguities
+  \item Calibrate IdeaRank weights based on expert human performance
+  \item Build benchmark datasets for future AI development
+\end{itemize}
+
+\section{Fair Play Enforcement}
+
+\subsection{Prohibited Behaviors}
+
+The following constitute violations of MetaSPN integrity standards:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{External assistance:} Accessing unauthorized resources or communication
+  \item \textbf{Model deception:} Misrepresenting AI capabilities or training data
+  \item \textbf{Coaching violations:} Providing direct solutions or unauthorized guidance
+  \item \textbf{Score manipulation:} Attempting to game IdeaRank through artificial behaviors
+  \item \textbf{Collusion:} Coordinating outcomes or sharing information across teams
+\end{itemize}
+
+\subsection{Penalties}
+
+Violations result in:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lc@{}}
+\toprule
+\textbf{Violation Severity} & \textbf{Penalty} \\ \midrule
+Minor (unintentional) & Score deduction ($-0.05$ to $-0.10$) \\
+Moderate (procedural breach) & Match disqualification \\
+Severe (deliberate cheating) & Suspension (3–12 months) \\
+Egregious (systemic fraud) & Permanent ban \\ \bottomrule
+\end{tabular}
+\caption{Integrity Violation Penalties}
+\label{tab:integrity_penalties}
+\end{table}
+
+\section{Appeals Process}
+
+\subsection{Filing an Appeal}
+
+Participants may appeal:
+\begin{itemize}[leftmargin=*]
+  \item Scoring decisions
+  \item Integrity violation rulings
+  \item Referee errors or misconduct
+\end{itemize}
+
+\textbf{Requirements:}
+\begin{itemize}[leftmargin=*]
+  \item Filed within 24 hours of match completion
+  \item Include specific claims with supporting evidence
+  \item Submit to MetaSPN Council (see Chapter \ref{ch:governance})
+\end{itemize}
+
+\subsection{Appeal Review}
+
+Appeals are reviewed by a three-member panel:
+\begin{itemize}[leftmargin=*]
+  \item One technical expert (AI/scoring specialist)
+  \item One competitive integrity officer
+  \item One independent referee (not involved in original match)
+\end{itemize}
+
+\textbf{Outcomes:}
+\begin{itemize}[leftmargin=*]
+  \item Appeal upheld: Score adjusted, penalties reversed
+  \item Appeal partially upheld: Modified ruling
+  \item Appeal denied: Original decision stands
+\end{itemize}
+
+Decisions are final unless new evidence emerges.
+
+\section{Transparency Commitments}
+
+MetaSPN commits to:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Public rule documentation} (this rulebook)
+  \item \textbf{Open scoring algorithms} (IdeaRank formula and weights)
+  \item \textbf{Match data availability} (anonymized for research)
+  \item \textbf{Governance meeting minutes} (published quarterly)
+  \item \textbf{Annual integrity report} (violations, appeals, system improvements)
+\end{itemize}
+
